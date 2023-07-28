@@ -23,4 +23,14 @@ class ControllerProductos extends Controller
         $productos->save();
 
     }
+    public function update(Request $request, $id)
+    {
+        $request->validate(['precio'=>'required']);
+
+        $productos = Producto::findOrFail($id);
+        $productos->fill($request->all());
+        $productos->save();
+        return redirect()->route('productos.index');
+
+    }
 }
