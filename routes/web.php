@@ -22,3 +22,5 @@ Route::get('/login', function () {
 Route::get('/registro', function () {
     return view('registro');
 });
+
+Route::resource('productos', App\Http\Controllers\ControllerProductos::class);
